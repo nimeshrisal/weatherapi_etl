@@ -1,9 +1,7 @@
-import logging
+from config.logs import logger
 from config.config import Config
 from db.connection import DatabaseConnection as DBConnection
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
 
 class WeatherTransformerFinal:
 

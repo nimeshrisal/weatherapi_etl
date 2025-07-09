@@ -1,11 +1,8 @@
 import json 
-import logging  
+from config.logs import logger
 from db.connection import DatabaseConnection as DBConnection
 from config.config import Config
 from datetime import datetime
-# Configure logging
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
 
 class WeatherTransformer:
 
@@ -18,9 +15,9 @@ class WeatherTransformer:
                 logger.info("Fetching raw weather data from the database.")
 
                 db.execute("SELECT max(id) FROM weather_raw")
-                latest_id = db.fetchone()['max']
+                # latest_id = db.fetchone()['max']
 
-                db.execute("SELECT id, city, raw_json FROM weather_raw WHERE id > %s", (latest_id,))
+                db.execute("SELECT id, city, raw_json FROM weather_raw")
                 raw_records = db.fetchall()
 
                 inserted = 0

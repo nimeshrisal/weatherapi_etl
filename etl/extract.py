@@ -1,12 +1,10 @@
 import requests
 from datetime import datetime
 import json
-import logging
+from config.logs import logger
 from config.config import Config
 from db.connection import DatabaseConnection as DBConnection
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
 class WeatherExtractor:
     
     def __init__(self, config: Config):
