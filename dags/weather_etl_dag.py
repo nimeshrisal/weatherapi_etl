@@ -17,7 +17,7 @@ default_args = {
 }
 
 dag = DAG(
-    'weather_etl_pipeline',
+    dag_id = 'weather_etl_pipeline',
     default_args=default_args,  
     description='A simple ETL pipeline for weather data that runs for every 5 minutes',
     schedule_interval='*/5 * * * *',  # Every 5 minutes
