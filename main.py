@@ -4,6 +4,7 @@ from etl.transform_stage import WeatherTransformer
 from etl.transform_final import WeatherTransformerFinal
 
 def main():
+    print("Starting the Weather ETL Pipeline...")
     config = Config()
 
     # Step 1: Extract
