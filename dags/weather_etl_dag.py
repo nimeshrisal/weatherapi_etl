@@ -1,5 +1,5 @@
 from airflow import DAG
-from airflow.operators import PythonOperator
+from airflow.operators.python import PythonOperator  
 from datetime import datetime, timedelta
 import os
 import sys
@@ -17,9 +17,9 @@ default_args = {
 }
 
 dag = DAG(
-    dag_id = 'weather_etl_pipeline',
+    dag_id='weather_etl_pipeline',
     default_args=default_args,  
-    description='A simple ETL pipeline for weather data that runs for every 5 minutes',
+    description='A simple ETL pipeline for weather data that runs every 5 minutes',
     schedule_interval='*/5 * * * *',  # Every 5 minutes
     start_date=datetime(2023, 10, 1),  # Start date for the DAG
     catchup=False,  # Do not backfill
